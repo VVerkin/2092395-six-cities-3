@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов»
 
 * Студент: [Василий Веркин](https://up.htmlacademy.ru/react-individual/3/user/2092395).
-* Наставник: [Василий Петрухин] (https://htmlacademy.ru/profile/id1528403).
+* Наставник: [Василий Петрухин](https://htmlacademy.ru/profile/id1528403).
 
 ---
 
