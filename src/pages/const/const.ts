@@ -1,0 +1,6 @@
+const OFFERS_CARDS_COUNT = 10;
+
+
+export {
+  OFFERS_CARDS_COUNT,
+};

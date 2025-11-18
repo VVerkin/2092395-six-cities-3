@@ -1,0 +1,5 @@
+function MainEmptyScreen () {
+  return (
+
+  )
+}
