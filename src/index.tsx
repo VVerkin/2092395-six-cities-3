@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
-import { OFFER_CARDS_COUNT } from './pages/const/const';
+import { OFFER_CARDS_COUNT } from './const/const';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

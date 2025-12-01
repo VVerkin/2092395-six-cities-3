@@ -9,7 +9,7 @@ const CITIES: string[] = [
   'Dusseldorf',
 ];
 
-const placesOptions = [
+const placesOptions: string[] = [
   'Popular',
   'Price: low to high',
   'Price: high to low',
