@@ -1,4 +1,5 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import Layout from '../layout/layout';
 import MainScreen from '../../pages/main-screen/main-screen';
 import LoginScreen from '../../pages/login-screen/login-screen';
 import FavoritesScreen from '../../pages/favorites-screen/favorites-screen';
@@ -11,26 +12,41 @@ type AppProps = {
   offersCount: number;
 }
 
-function App({ offersCount }: AppProps): JSX.Element {
+export default function App({ offersCount }: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<MainScreen offersCount={offersCount} />} />
-        <Route path={AppRoute.Login} element={<LoginScreen />} />
-        <Route path={`${AppRoute.Property}/:id`} element={<PropertyScreen />} />
-        <Route path={AppRoute.Favorites}
-          element={
-            <PrivateRoute
-              authorizationStatus={AuthorizationStatus.NoAuth}
-            >
-              <FavoritesScreen />
-            </PrivateRoute>
-          }
-        />
-        <Route path="*" element={<NotFoundScreen />} />
+        <Route
+          path={AppRoute.Root}
+          element={<Layout />}
+        >
+          <Route
+            index
+            element={<MainScreen offersCount={offersCount} />}
+          />
+          <Route
+            path={AppRoute.Login}
+            element={<LoginScreen />}
+          />
+          <Route
+            path={`${AppRoute.Property}/:id`}
+            element={<PropertyScreen />}
+          />
+          <Route path={AppRoute.Favorites}
+            element={
+              <PrivateRoute
+                authorizationStatus={AuthorizationStatus.NoAuth}
+              >
+                <FavoritesScreen />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="*"
+            element={<NotFoundScreen />}
+          />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
 }
-
-export default App;
