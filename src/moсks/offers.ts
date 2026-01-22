@@ -1,5 +1,6 @@
 import type { Offer } from '../types/types';
 
+
 const offers: Offer[] = [
   {
     id: 1,

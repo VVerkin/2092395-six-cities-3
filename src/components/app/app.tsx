@@ -8,12 +8,14 @@ import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
 import { AppRoute} from '../../const/const';
 import { getAuthorizationStatus } from '../../utils/utils';
+import type { Offer } from '../../types/types';
+
 
 type AppProps = {
-  offersCount: number;
+  offers: Offer[]
 }
 
-export default function App({ offersCount }: AppProps): JSX.Element {
+export default function App({ offers }: AppProps): JSX.Element {
   const authorizationStatus = getAuthorizationStatus();
   return (
     <BrowserRouter>
@@ -24,7 +26,7 @@ export default function App({ offersCount }: AppProps): JSX.Element {
         >
           <Route
             index
-            element={<MainScreen offersCount={offersCount} />}
+            element={<MainScreen offers={offers} />}
           />
           <Route
             path={AppRoute.Login}

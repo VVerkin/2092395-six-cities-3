@@ -16,6 +16,9 @@ export const placesOptions: string[] = [
   'Top rated first',
 ];
 
+export const STARS_COUNT = 5;
+export const MAX_PERCENT_STARS_WIDTH = 100;
+
 export enum AppRoute {
     Root = '/',
     Login = '/login',
