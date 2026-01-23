@@ -9,7 +9,7 @@ type OfferCardListProps = {
 };
 
 const OfferCardList = ({ offers }: OfferCardListProps): JSX.Element => {
-  
+
   const [activeOffer, setActiveOffer] = useState<number | null>(null);
 
   const handleCardMouseMove = (id: number) => {
