@@ -1,15 +1,14 @@
-import Header from '../../components/header/header.tsx';
-import OfferCard from '../../components/offer-card/offer-card';
 import { CITIES, placesOptions } from '../../const/const.ts';
+import type { Offer } from '../../types/types';
+import OfferCardList from '../../components/offer-card-list/offer-card-list.tsx';
 
 type MainScreenProps = {
-    offersCount: number;
+    offers: Offer[];
 }
 
-export default function MainScreen ({ offersCount = 0 }: MainScreenProps): JSX.Element {
+export default function MainScreen ({ offers }: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
-      <Header />
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
@@ -29,7 +28,7 @@ export default function MainScreen ({ offersCount = 0 }: MainScreenProps): JSX.E
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offersCount} places to stay in Amsterdam</b>
+              <b className="places__found">{offers.length} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -50,9 +49,7 @@ export default function MainScreen ({ offersCount = 0 }: MainScreenProps): JSX.E
                   ))}
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {Array.from({ length: offersCount }, (_, i) => <OfferCard key={i}/>)}
-              </div>
+              <OfferCardList offers={offers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map" />
