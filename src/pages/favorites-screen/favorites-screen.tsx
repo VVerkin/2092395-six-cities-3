@@ -1,11 +1,12 @@
 import OfferCard from '../../components/offer-card/offer-card';
-import type { Offer } from '../../types/types';
+import type { City, Offer } from '../../types/types';
 
 type FavoritesProps = {
+  city: City;
   offers: Offer[];
 }
 
-export default function FavoritesScreen ({ offers }: FavoritesProps): JSX.Element {
+export default function FavoritesScreen ({ city, offers }: FavoritesProps): JSX.Element {
   const groupedOffersByCity = offers.reduce<{ [key: string ]: Offer[] }>((acc, curr) => {
     if (curr.isFavorite) {
       const city = curr.city.name;

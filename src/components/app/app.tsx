@@ -8,14 +8,15 @@ import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
 import { AppRoute} from '../../const/const';
 import { getAuthorizationStatus } from '../../utils/utils';
-import type { Offer } from '../../types/types';
+import type { City, Offer } from '../../types/types';
 
 
 type AppProps = {
+  city: City;
   offers: Offer[]
 }
 
-export default function App({ offers }: AppProps): JSX.Element {
+export default function App({ city, offers }: AppProps): JSX.Element {
   const authorizationStatus = getAuthorizationStatus();
   return (
     <BrowserRouter>
@@ -26,7 +27,7 @@ export default function App({ offers }: AppProps): JSX.Element {
         >
           <Route
             index
-            element={<MainScreen offers={offers} />}
+            element={<MainScreen city={city} offers={offers} />}
           />
           <Route
             path={AppRoute.Login}
