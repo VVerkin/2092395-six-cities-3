@@ -9,9 +9,6 @@ export const placesOptions: string[] = [
   'Top rated first',
 ];
 
-export const STARS_COUNT = 5;
-export const MAX_PERCENT_STARS_WIDTH = 100;
-
 export const URL_MARKER_DEFAULT =
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
 export const URL_MARKER_CURRENT =
@@ -30,3 +27,9 @@ export enum AuthorizationStatus {
     NoAuth = 'NO_AUTH',
     Unknown = 'UNKNOWN',
 }
+
+export const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as const;
+
+export const STARS_COUNT = 5;
+
+export const MAX_PERCENT_STARS_WIDTH = 100;
