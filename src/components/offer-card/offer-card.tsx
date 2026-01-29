@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom';
 import type { Offer } from '../../types/types';
 
-import { AppRoute, MAX_PERCENT_STARS_WIDTH, STARS_COUNT } from '../../const/const';
-
+import { AppRoute } from '../../const/const';
+import { getStarsWidth } from '../../utils/utils';
 
 type OfferCardProps = Offer & {
   onMouseMove?: (id: number) => void;
   onMouseLeave?: () => void;
-  place?: 'cities' | 'favorites';
+  place?: 'cities' | 'near-places';
 };
 
 const OfferCard = ({
@@ -16,7 +17,6 @@ const OfferCard = ({
   title,
   isPremium,
   isFavorite,
-  previewImage,
   type,
   place = 'cities',
   onMouseMove = () => void 0,
@@ -41,7 +41,7 @@ const OfferCard = ({
         <a href="#">
           <img
             className="place-card__image"
-            src={previewImage}
+            src="img/apartment-01.jpg"
             width="260"
             height="200"
             alt="Place image"
@@ -69,7 +69,7 @@ const OfferCard = ({
           <div className="place-card__stars rating__stars">
             <span
               style={{
-                width: `${(MAX_PERCENT_STARS_WIDTH * rating) / STARS_COUNT}%`,
+                width: getStarsWidth(rating),
               }}
             >
             </span>
@@ -77,7 +77,7 @@ const OfferCard = ({
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href={`${AppRoute.Property}/${id}`}>{title}</a>
+          <Link to={`${AppRoute.Property}/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -86,3 +86,4 @@ const OfferCard = ({
 };
 
 export default OfferCard;
+

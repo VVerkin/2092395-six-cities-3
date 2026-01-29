@@ -8,15 +8,16 @@ import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
 import { AppRoute} from '../../const/const';
 import { getAuthorizationStatus } from '../../utils/utils';
-import type { City, Offer } from '../../types/types';
+import type { City, Offer, Comment } from '../../types/types';
 
 
 type AppProps = {
   city: City;
   offers: Offer[];
+  reviews: Comment[];
 }
 
-export default function App({ city, offers }: AppProps): JSX.Element {
+export default function App({ city, offers, reviews }: AppProps): JSX.Element {
   const authorizationStatus = getAuthorizationStatus();
   return (
     <BrowserRouter>
@@ -39,7 +40,7 @@ export default function App({ city, offers }: AppProps): JSX.Element {
           />
           <Route
             path={`${AppRoute.Property}/:id`}
-            element={<PropertyScreen />}
+            element={<PropertyScreen city={city} nearbyOffers={offers} reviews={reviews}/>}
           />
           <Route
             path={AppRoute.Favorites}
