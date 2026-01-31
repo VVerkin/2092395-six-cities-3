@@ -39,7 +39,7 @@ const useMap = (
       }
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mapRef, city, map]);
+  }, [mapRef, city]);
 
   return map;
 };

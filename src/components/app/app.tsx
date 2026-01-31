@@ -10,15 +10,15 @@ import { AppRoute} from '../../const/const';
 import { getAuthorizationStatus } from '../../utils/utils';
 import type { City, Offer, Comment } from '../../types/types';
 
-
 type AppProps = {
   city: City;
   offers: Offer[];
   reviews: Comment[];
-}
+};
 
-export default function App({ city, offers, reviews }: AppProps): JSX.Element {
+const App = ({ city, offers, reviews }: AppProps): JSX.Element => {
   const authorizationStatus = getAuthorizationStatus();
+
   return (
     <BrowserRouter>
       <Routes>
@@ -58,4 +58,6 @@ export default function App({ city, offers, reviews }: AppProps): JSX.Element {
       </Routes>
     </BrowserRouter>
   );
-}
+};
+
+export default App;

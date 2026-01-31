@@ -9,7 +9,7 @@ type OfferCardListProps = {
 };
 
 const OfferCardList = ({ offers }: OfferCardListProps): JSX.Element => {
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeOffer, setActiveOffer] = useState<number | null>(null);
 
   const handleCardMouseMove = (id: number) => {

@@ -7,7 +7,7 @@ import { getStarsWidth } from '../../utils/utils';
 type OfferCardProps = Offer & {
   onMouseMove?: (id: number) => void;
   onMouseLeave?: () => void;
-  place?: 'cities' | 'near-places';
+  place?: 'cities' | 'near-places' | 'favorites';
 };
 
 const OfferCard = ({
